@@ -24,6 +24,7 @@ jobs:
     - name: Clear
       run: make clean; sudo apt update; sudo apt autoremove;
     - name: Install cross toolchain for aarch64
+      continue-on-error: true
       run: |
         sudo dpkg --add-architecture arm64 || true
         CODENAME=$(lsb_release -c -s)
