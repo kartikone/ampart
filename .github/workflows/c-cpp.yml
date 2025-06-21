@@ -23,8 +23,6 @@ jobs:
         retention-days: 90
     - name: Clear
       run: make clean
-    - name: Rename for aarch64
-      run: mv ampart ampart-aarch64
     - name: Install cross toolchain for aarch64
       run: |
         sudo dpkg --add-architecture arm64
