@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: Add all repos
       run: |
-        sudo cat > /etc/apt/sources.list << EOF
+        sudo bash -c 'cat > /etc/apt/sources.list << EOF
         deb [arch=arm64] http://ports.ubuntu.com/ noble main restricted universe multiverse
         deb [arch=arm64] http://ports.ubuntu.com/ noble-security main restricted universe multiverse
         deb [arch=arm64] http://ports.ubuntu.com/ noble-updates main restricted universe multiverse
@@ -38,7 +38,7 @@ jobs:
         deb-src http://security.ubuntu.com/ubuntu noble-security multiverse
         deb [arch=amd64] http://extras.ubuntu.com/ubuntu noble main
         deb-src http://extras.ubuntu.com/ubuntu noble main
-        EOF
+        EOF'
         rm -r -f /etc/apt/sources.list.d;
         apt clean;
         apt update;
