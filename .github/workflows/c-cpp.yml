@@ -53,7 +53,7 @@ jobs:
         if-no-files-found: error
         retention-days: 90
     - name: Clear
-      run: make clean; sudo apt update; sudo apt autoremove; sudo apt dist-upgrade
+      run: make clean; sudo apt update; sudo apt autoremove;
       continue-on-error: true
     - name: Install cross toolchain for aarch64
       continue-on-error: true
@@ -79,6 +79,8 @@ jobs:
           binutils-aarch64-linux-gnu \
           linux-libc-dev:arm64 \
           zlib1g-dev:arm64
+        export compiler-path=$(which gcc-aarch64-linux-gnu-gcc)
+        sudo ln -s "$compiler-path" /usr/local/bin/aarch64-none-linux-gnu-gcc
     - name: Static build for aarch64
       run: make fresh CC=aarch64-linux-gnu-gcc STRIP=aarch64-linux-gnu-strip STATIC=1
     - name: Rename for aarch64
