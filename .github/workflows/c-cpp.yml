@@ -20,7 +20,7 @@ jobs:
         name: static-build
         path: ampart-*
         if-no-files-found: error
-        retention-days: -1
+        retention-days: 90
     - name: Clear
       run: make clean
     - name: Rename for aarch64
@@ -50,4 +50,4 @@ jobs:
         name: static-build
         path: ampart-*
         if-no-files-found: error
-        retention-days: -1
+        retention-days: 90
