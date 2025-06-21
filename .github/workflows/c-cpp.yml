@@ -25,7 +25,7 @@ jobs:
       run: make clean; sudo apt update; sudo apt autoremove;
     - name: Install cross toolchain for aarch64
       run: |
-        sudo dpkg --add-architecture arm64
+        sudo dpkg --add-architecture arm64 || true
         CODENAME=$(lsb_release -c -s)
         sudo bash -c "echo -e '\
           deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble main restricted\n
@@ -38,7 +38,7 @@ jobs:
           deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble-security main restricted\n
           deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble-security universe\n
           deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble-security multiverse\n' > /etc/apt/sources.list.d/arm64-cross.list"
-        cat /etc/apt/sources.list
+        cat /etc/apt/sources.list.d/ubuntu.sources
         sudo apt-get update
         sudo apt-get install \
           gcc-aarch64-linux-gnu \
