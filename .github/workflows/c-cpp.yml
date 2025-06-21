@@ -40,7 +40,6 @@ jobs:
         sudo rm -r -f /etc/apt/sources.list.d;
         sudo apt clean;
         sudo apt update;
-        sudo apt dist-upgrade;
     - uses: actions/checkout@v4
     - name: Static build for x86_64
       run: make fresh STATIC=1
@@ -75,7 +74,7 @@ jobs:
         sudo dpkg --add-architecture arm64 || true;
         sudo apt-get update
         sudo apt-get install \
-          g++-aarch64-linux-gnu-g++ \ 
+          g++-aarch64-linux-gnu \ 
           gcc-aarch64-linux-gnu \
           binutils-aarch64-linux-gnu \
           linux-libc-dev:arm64 \
