@@ -28,16 +28,17 @@ jobs:
         sudo dpkg --add-architecture arm64
         CODENAME=$(lsb_release -c -s)
         sudo bash -c "echo -e '\
-          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports jammy main restricted\n
-          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports jammy-updates main restricted\n
-          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports jammy universe\n
-          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports jammy-updates universe\n
-          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports jammy multiverse\n
-          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports jammy-updates multiverse\n
-          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports jammy-backports main restricted universe multiverse\n
-          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports jammy-security main restricted\n
-          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports jammy-security universe\n
-          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports jammy-security multiverse\n' > /etc/apt/sources.list.d/arm64-cross.list"
+          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble main restricted\n
+          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble-updates main restricted\n
+          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble universe\n
+          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble-updates universe\n
+          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble multiverse\n
+          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble-updates multiverse\n
+          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble-backports main restricted universe multiverse\n
+          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble-security main restricted\n
+          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble-security universe\n
+          deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble-security multiverse\n' > /etc/apt/sources.list.d/arm64-cross.list"
+        cat /etc/apt/sources.list
         sudo apt-get update
         sudo apt-get install \
           gcc-aarch64-linux-gnu \
