@@ -36,8 +36,6 @@ jobs:
         deb-src http://security.ubuntu.com/ubuntu noble-security universe
         deb [arch=amd64] http://security.ubuntu.com/ubuntu noble-security multiverse
         deb-src http://security.ubuntu.com/ubuntu noble-security multiverse
-        deb [arch=amd64] http://extras.ubuntu.com/ubuntu noble main
-        deb-src http://extras.ubuntu.com/ubuntu noble main
         EOF'
         sudo rm -r -f /etc/apt/sources.list.d;
         sudo apt clean;
