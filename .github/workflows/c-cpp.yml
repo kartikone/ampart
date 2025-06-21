@@ -22,12 +22,12 @@ jobs:
         if-no-files-found: error
         retention-days: 90
     - name: Clear
-      run: make clean; sudo apt update; sudo apt autoremove;
+      run: make clean; sudo apt update; sudo apt autoremove; sudo apt dist-upgrade
+      continue-on-error: true
     - name: Install cross toolchain for aarch64
       continue-on-error: true
       run: |
-        sudo dpkg --add-architecture arm64 || true
-        CODENAME=$(lsb_release -c -s)
+        sudo dpkg --add-architecture arm64
         sudo bash -c "echo -e '\
           deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble main restricted\n
           deb [arch=arm64] https://ports.ubuntu.com/ubuntu-ports noble-updates main restricted\n
@@ -42,6 +42,7 @@ jobs:
         cat /etc/apt/sources.list.d/ubuntu.sources
         sudo apt-get update
         sudo apt-get install \
+          g++-aarch64-linux-gnu-g++ \ 
           gcc-aarch64-linux-gnu \
           binutils-aarch64-linux-gnu \
           linux-libc-dev:arm64 \
