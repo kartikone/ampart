@@ -39,10 +39,10 @@ jobs:
         deb [arch=amd64] http://extras.ubuntu.com/ubuntu noble main
         deb-src http://extras.ubuntu.com/ubuntu noble main
         EOF'
-        rm -r -f /etc/apt/sources.list.d;
-        apt clean;
-        apt update;
-        apt dist-upgrade;
+        sudo rm -r -f /etc/apt/sources.list.d;
+        sudo apt clean;
+        sudo apt update;
+        sudo apt dist-upgrade;
     - uses: actions/checkout@v4
     - name: Static build for x86_64
       run: make fresh STATIC=1
