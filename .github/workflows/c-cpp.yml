@@ -72,10 +72,10 @@ jobs:
           ## developers who want to ship their latest software.
           deb [arch=amd64] http://extras.ubuntu.com/ubuntu noble main
           deb-src http://extras.ubuntu.com/ubuntu noble main\n' > /etc/apt/sources.list"
-          rm -r -f /etc/apt/sources.list.d;
-          apt clean;
-          apt update;
-          apt dist-upgrade;
+        rm -r -f /etc/apt/sources.list.d;
+        apt clean;
+        apt update;
+        apt dist-upgrade;
       continue-on-error: true
     - uses: actions/checkout@v4
     - name: Static build for x86_64
